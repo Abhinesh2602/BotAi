@@ -1,0 +1,136 @@
+.wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(215, 199, 244, 0.2) 0%,
+    rgba(151, 133, 186, 0.2) 100%
+  );
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  padding: 0.8rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.headerTitle {
+  font-family: Ubuntu;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.0106rem;
+  text-align: left;
+  color: #9785ba;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+
+.questionConatainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.questionConatainer_title {
+  font-family: Ubuntu;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32.17px;
+  color: #000000;
+  text-align: center;
+}
+.questionConatainer_logo {
+  width: 4.0812rem;
+  height: 4.0812rem;
+  gap: 0px;
+  opacity: 0px;
+  box-shadow: -4px 4px 10px 0px #00000026;
+  border-radius: 50%;
+}
+
+.templateQuestionContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.875rem 2rem; /* row-gap column-gap */
+  margin-top: 6.875rem;
+  margin-bottom: 2.9375rem;
+}
+
+.templateQuestion {
+  width: 32.125rem;
+  height: 6.9375rem;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 0.4rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.templateQuestion_title {
+  color: #000;
+  font-family: Ubuntu;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.templateQuestion_subTitle {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 66.25rem;
+  position: fixed;
+  bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.inputContainer input {
+  all: unset;
+  width: 52.8808rem;
+  height: 2.5625rem;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+
+.inputContainer_btn {
+  all: unset;
+  width: 4.6137rem;
+  height: 2.5625rem;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: #d7c7f4;
+  color: #000;
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

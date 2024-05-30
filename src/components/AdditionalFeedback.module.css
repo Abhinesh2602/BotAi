@@ -1,0 +1,80 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 101;
+}
+
+.Backdropwrapper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+}
+
+.container {
+  width: 47.875rem;
+  height: 20.9375rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  background: #faf7ff;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.56rem;
+  box-sizing: border-box;
+}
+
+.bulb {
+  width: 2.5rem;
+  height: 2.625rem;
+  flex-shrink: 0;
+}
+
+.titleFeedbackContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+}
+
+.titlefeedback {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.inputContainer {
+  all: unset;
+  width: 44.75rem;
+  height: 11.6875rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+
+.feedbackBtn {
+  all: unset;
+  width: 9.8125rem;
+  height: 3.125rem;
+  flex-shrink: 0;
+  border-radius: 0.3125rem;
+  background: #d7c7f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.wrapper {
+  height: 100%;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  position: fixed;
+  width: 11.4492rem;
+}
+
+.pastBtn {
+  all: unset;
+  width: 10.695rem;
+  height: 2.4375rem;
+  top: 5.25rem;
+  left: 1.0263rem;
+  gap: 0px;
+  border-radius: 10px;
+  opacity: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, #d7c7f4, #d7c7f4);
+  font-family: Ubuntu;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1487rem;
+  text-align: left;
+  cursor: pointer;
+}

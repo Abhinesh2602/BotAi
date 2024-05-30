@@ -1,0 +1,128 @@
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(215, 199, 244, 0.2) 0%,
+    rgba(151, 133, 186, 0.2) 100%
+  );
+  position: relative;
+}
+
+.container {
+  height: auto;
+  padding: 0.8rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #edeaf4;
+}
+
+.headerTitle {
+  font-family: Ubuntu;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 2.0106rem;
+  text-align: left;
+  color: #9785ba;
+  align-self: flex-start;
+  position: absolute;
+}
+
+.chatContainer {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.profilePic {
+  width: 4.081rem;
+  height: 4.081rem;
+  flex-shrink: 0;
+}
+
+.ChatContainer_details {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  min-height: 6rem;
+  width: 66.25rem;
+  border-radius: 1.25rem;
+  background: rgba(215, 199, 244, 0.13);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  padding: 1.1rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.8rem;
+  box-sizing: border-box;
+}
+
+.chatDetails {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.youTitle {
+  color: #000;
+  font-family: Ubuntu;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.message {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.time {
+  color: rgba(0, 0, 0, 0.62);
+  font-family: "Open Sans";
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: auto;
+  justify-self: flex-end;
+}
+.logoPic {
+  width: 4.081rem;
+  height: 4.081rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.feedbackimg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.timeFeebackContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.imageContainer {
+  gap: 0.5rem;
+  display: none;
+}
+
+.ChatContainer_details:hover .imageContainer {
+  display: flex;
+}
