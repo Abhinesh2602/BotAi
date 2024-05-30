@@ -4,14 +4,14 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   z-index: 101;
 }
 
 .Backdropwrapper {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   backdrop-filter: blur(2px);
 }
@@ -77,4 +77,17 @@
   align-items: center;
   align-self: flex-end;
   cursor: pointer;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }

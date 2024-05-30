@@ -20,19 +20,11 @@ function Conversation() {
     setshowFeedback,
   } = useBotContext();
 
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    // Only fetch the current time if there are conversations
-    if (conversationIndex > 0) {
-      getCurrentTime().then((time) => setCurrentTime(time));
-    }
-  }, [conversationIndex]);
+  console.log(conversations);
 
   useEffect(() => {
     if (conversationIndex > 0) {
       const lastConversation = conversations[conversationIndex - 1];
-      console.log(lastConversation);
 
       if (lastConversation && lastConversation.botReply.text === "") {
         const filteredData = sampleData.filter(
@@ -48,24 +40,26 @@ function Conversation() {
             ? filteredData[0].response
             : "Sorry, I couldn't understand that.";
 
-        setConversations((prev) => {
-          const lastIndex = conversationIndex - 1;
-          return {
-            ...prev,
-            [lastIndex]: {
-              ...prev[lastIndex],
-              botReply: {
-                text: response,
-                isBot: true,
-                time: currentTime, // Update time here
-                feedback: "",
+        getCurrentTime().then((time) => {
+          setConversations((prev) => {
+            const lastIndex = conversationIndex - 1;
+            return {
+              ...prev,
+              [lastIndex]: {
+                ...prev[lastIndex],
+                botReply: {
+                  text: response,
+                  isBot: true,
+                  time: time,
+                  feedback: "",
+                },
               },
-            },
-          };
+            };
+          });
         });
       }
     }
-  }, [conversationIndex, conversations, setConversations, currentTime]);
+  }, [conversationIndex, conversations, setConversations]);
 
   return (
     <>

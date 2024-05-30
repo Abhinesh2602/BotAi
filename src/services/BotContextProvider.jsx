@@ -14,6 +14,7 @@ function BotProvider({ children }) {
   const [conversations, setConversations] = useState({});
   const [conversationIndex, setConversationIndex] = useState(0);
   const [feedback, setshowFeedback] = useState(false);
+  const [savedChats, setSavedChats] = useState([]);
 
   const clearQuestion = useCallback(() => {
     setQuestion("");
@@ -31,6 +32,8 @@ function BotProvider({ children }) {
         setConversationIndex,
         feedback,
         setshowFeedback,
+        savedChats,
+        setSavedChats,
       }}
     >
       {children}

@@ -14,6 +14,7 @@ function Input() {
     conversationIndex,
     setConversationIndex,
     currentTime,
+    setSavedChats,
   } = useBotContext();
 
   const location = useLocation();
@@ -63,6 +64,11 @@ function Input() {
     [setQuestion]
   );
 
+  const handleSave = (e) => {
+    e.preventDefault();
+    setSavedChats((prev) => [...prev, conversations]);
+  };
+
   return (
     <form action="" className={styles.inputContainer} onSubmit={handleSubmit}>
       <input
@@ -74,7 +80,9 @@ function Input() {
       <button className={styles.inputContainer_btn} type="submit">
         Ask
       </button>
-      <button className={styles.inputContainer_btn}>Save</button>
+      <button className={styles.inputContainer_btn} onClick={handleSave}>
+        Save
+      </button>
     </form>
   );
 }
