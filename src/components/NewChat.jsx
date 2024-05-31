@@ -2,6 +2,8 @@ import styles from "./NewChat.module.css";
 import logo from "../assets/logo/logo.png";
 import edit from "../assets/icons/edit.svg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useBotContext } from "../services/BotContextProvider";
 
 function NewChat() {
   return (

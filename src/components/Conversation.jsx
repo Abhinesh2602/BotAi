@@ -10,17 +10,13 @@ import sampleData from "../data/sampleData.json";
 import React, { memo } from "react";
 import getCurrentTime from "../services/time";
 import AdditionalFeedback from "./AdditionalFeedback";
+import { Rating } from "@smastrom/react-rating";
+
+import "@smastrom/react-rating/style.css";
 
 function Conversation() {
-  const {
-    conversations,
-    setConversations,
-    conversationIndex,
-    feedback,
-    setshowFeedback,
-  } = useBotContext();
-
-  console.log(conversations);
+  const { conversations, setConversations, conversationIndex, feedback } =
+    useBotContext();
 
   useEffect(() => {
     if (conversationIndex > 0) {
@@ -32,8 +28,6 @@ function Conversation() {
             data.question.toLowerCase() ===
             lastConversation.userQuestion.text.toLowerCase()
         );
-
-        console.log(filteredData);
 
         const response =
           filteredData.length > 0
@@ -51,7 +45,8 @@ function Conversation() {
                   text: response,
                   isBot: true,
                   time: time,
-                  feedback: "",
+                  feedback: "", // Initialize feedback to an empty string
+                  rating: 0, // Initialize rating to 0
                 },
               },
             };
@@ -63,7 +58,7 @@ function Conversation() {
 
   return (
     <>
-      {feedback ? <AdditionalFeedback /> : ""}
+      {feedback && <AdditionalFeedback />}
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <span className={styles.headerTitle}>Bot AI</span>
@@ -78,6 +73,7 @@ function Conversation() {
                 <BotChat
                   botResponse={conversations[key].botReply.text}
                   time={conversations[key].botReply.time}
+                  conversationIndex={key}
                 />
               </div>
             ))}
@@ -104,12 +100,32 @@ const UserChat = memo(({ userquestion, time }) => {
 
 UserChat.displayName = "UserChat";
 
-const BotChat = memo(({ botResponse, time }) => {
-  const { setshowFeedback } = useBotContext();
+const BotChat = memo(({ botResponse, time, conversationIndex }) => {
+  const { setshowFeedback, setConversations, conversations } = useBotContext();
+
+  const feedBackTxt = conversations[conversationIndex].botReply.feedback;
+
+  const [showRating, setShowRating] = useState(false);
+
+  const [uiRating, setUiRating] = useState(0);
 
   function handleClick() {
     setshowFeedback((prev) => !prev);
   }
+
+  const handleRatingChange = (newRating) => {
+    setConversations((prev) => ({
+      ...prev,
+      [conversationIndex]: {
+        ...prev[conversationIndex],
+        botReply: {
+          ...prev[conversationIndex].botReply,
+          rating: newRating,
+        },
+      },
+    }));
+    setUiRating(newRating);
+  };
 
   return (
     <div className={styles.ChatContainer_details}>
@@ -117,10 +133,24 @@ const BotChat = memo(({ botResponse, time }) => {
       <div className={styles.chatDetails}>
         <span className={styles.youTitle}>Soul Ai</span>
         <span className={styles.message}>{botResponse}</span>
+
+        {feedBackTxt && (
+          <span className={styles.Feedbackmessage}>
+            <span className={styles.FeedbackTitle}>
+              Feedback: {feedBackTxt}
+            </span>
+          </span>
+        )}
+
         <div className={styles.timeFeebackContainer}>
           <span className={styles.time}>{time}</span>
           <div className={styles.imageContainer}>
-            <img src={like} alt="like" className={styles.feedbackimg} />
+            <img
+              src={like}
+              alt="like"
+              className={styles.feedbackimg}
+              onClick={() => setShowRating(true)}
+            />
             <img
               src={dislike}
               alt="dislike"
@@ -128,6 +158,16 @@ const BotChat = memo(({ botResponse, time }) => {
               onClick={handleClick}
             />
           </div>
+
+          {showRating && (
+            <span className={styles.imageContainer}>
+              <Rating
+                style={{ maxWidth: 100 }}
+                value={uiRating}
+                onChange={handleRatingChange}
+              />
+            </span>
+          )}
         </div>
       </div>
     </div>

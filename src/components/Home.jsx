@@ -1,6 +1,8 @@
 import styles from "./Home.module.css";
 import logo from "../assets/logo/logo.png";
 import Input from "./Input";
+import { useBotContext } from "../services/BotContextProvider";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   return (
@@ -32,36 +34,31 @@ export default Home;
 function TemplateQuestions() {
   return (
     <div className={styles.templateQuestionContainer}>
-      <div className={styles.templateQuestion}>
-        <span className={styles.templateQuestion_title}>
-          Hi, What is the Weather
-        </span>
-        <span className={styles.templateQuestion_subTitle}>
-          Get Immediate AI generated response
-        </span>
-      </div>
-      <div className={styles.templateQuestion}>
-        <span className={styles.templateQuestion_title}>
-          Hi, what is my location
-        </span>
-        <span className={styles.templateQuestion_subTitle}>
-          Get Immediate AI generated response
-        </span>
-      </div>
-      <div className={styles.templateQuestion}>
-        <span className={styles.templateQuestion_title}>
-          Hi, what is the temperature
-        </span>
-        <span className={styles.templateQuestion_subTitle}>
-          Get Immediate AI generated response
-        </span>
-      </div>
-      <div className={styles.templateQuestion}>
-        <span className={styles.templateQuestion_title}>Hi, how are you</span>
-        <span className={styles.templateQuestion_subTitle}>
-          Get Immediate AI generated response
-        </span>
-      </div>
+      <TemplateQuestion>What is A/B testing?</TemplateQuestion>
+      <TemplateQuestion>What is the virtual DOM?</TemplateQuestion>
+      <TemplateQuestion>Can you explain RESTful APIs?</TemplateQuestion>
+      <TemplateQuestion>What is a Promise in JavaScript?</TemplateQuestion>
     </div>
   );
 }
+
+const TemplateQuestion = ({ children }) => {
+  const { question, setQuestion } = useBotContext();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setQuestion(children);
+    if (location.pathname !== "/conversations") {
+      navigate("/conversations");
+    }
+  };
+
+  return (
+    <div className={styles.templateQuestion} onClick={handleClick}>
+      <span className={styles.templateQuestion_title}>{children}</span>
+      <span className={styles.templateQuestion_subTitle}>
+        Get Immediate AI generated response
+      </span>
+    </div>
+  );
+};

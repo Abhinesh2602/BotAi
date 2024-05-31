@@ -126,3 +126,22 @@
 .ChatContainer_details:hover .imageContainer {
   display: flex;
 }
+
+.FeedbackTitle {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.Feedbackmessage {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 0.5rem;
+}

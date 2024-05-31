@@ -34,7 +34,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <BotProvider>
-      <RouterProvider router={router}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>
     </BotProvider>
   );
 }

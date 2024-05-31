@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import styles from "./Home.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useBotContext } from "../services/BotContextProvider";
+import getCurrentTime from "../services/time";
 
 function Input() {
   const navigate = useNavigate();
@@ -13,21 +14,23 @@ function Input() {
     conversations,
     conversationIndex,
     setConversationIndex,
-    currentTime,
     setSavedChats,
   } = useBotContext();
 
   const location = useLocation();
 
   const handleSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
+
+      const currentTime = await getCurrentTime();
 
       const newMessage = {
         text: question,
         isBot: false,
         time: currentTime,
       };
+
       const botMessage = { text: "", isBot: true };
 
       setConversations((prev) => ({
@@ -53,7 +56,6 @@ function Input() {
       navigate,
       location.pathname,
       setConversationIndex,
-      currentTime,
     ]
   );
 
@@ -66,7 +68,7 @@ function Input() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    setSavedChats((prev) => [...prev, conversations]);
+    setSavedChats([conversations]);
   };
 
   return (
